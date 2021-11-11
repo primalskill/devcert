@@ -51,8 +51,23 @@ Certificate authority (CA) marked trusted.
 
 ## Installation
 
-1. Grab a [pre-built binary](url here).
+1. Grab a [pre-built binary](https://github.com/primalskill/devcert/releases/tag/v1.0.0).
 2. Clone this repo and compile from source using Go.
+
+## Compile from Source
+
+Prerequisites:
+
+- Go
+- Make
+
+Execute `make release-<desired platform and architecture>`. Make will create the binary in `./.bin` directory.
+
+Available make commands:
+
+- `make release-win-amd64`
+- `make release-darwin-amd64`
+- `make release-darwin-arm64`
 
 ## Supported Platforms
 
