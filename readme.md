@@ -4,7 +4,7 @@ devcert takes away the pain of creating self-signed certificates for development
 
 ## Usage
 
-```shell
+```
 $ devcert my-project.local api.my-project.local my-other-project.test
 
 Generating certificate...
@@ -28,7 +28,7 @@ This is a one time process that needs to be executed before generating domain sp
 
 Example:
 
-```shell
+```
 $ devcert myapp.local
 
 devcert needs to execute the setup process first.
