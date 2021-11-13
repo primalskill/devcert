@@ -45,3 +45,31 @@ func sudoify(cmd ...string) *exec.Cmd {
 
 	return exec.Command("sudo", sudoCmd...)
 }
+
+func isDirectoryExist(dirPath string) bool {
+	_, err := os.Stat(dirPath)
+	return err == nil
+}
+
+func isBinaryExist(bin string) bool {
+	_, err := exec.LookPath(bin)
+	return err == nil
+}
+
+// detectLinux tries to fingerprint Linux CA trust methods instead of detecting the Linux distro itself.
+func detectLinux() (base string, err error) {
+	if isDirectoryExist("/usr/local/share/ca-certificates/") == true && isBinaryExist("update-ca-certificates") == true {
+		return "debian", nil
+	}
+
+	if isDirectoryExist("/etc/pki/ca-trust/source/anchors/") == true && isBinaryExist("update-ca-trust") == true {
+		return "rhel", nil
+	}
+
+	if isBinaryExist("pacman") == true && isBinaryExist("trust") == true {
+		return "arch", nil
+	}
+
+	err = fmt.Errorf("Detecting Linux failed: Cannot detect base Linux distro.")
+	return
+}
