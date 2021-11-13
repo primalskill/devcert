@@ -86,12 +86,19 @@ func generateCertificate(domains []string) (err error) {
 	crtB.WriteString(devcertDir)
 	crtB.WriteString("devcert_")
 	crtB.WriteString(domains[0])
-	crtB.WriteString("_multi.crt")
 
 	keyB.WriteString(devcertDir)
 	keyB.WriteString("devcert_")
 	keyB.WriteString(domains[0])
-	keyB.WriteString("_multi.key")
+
+	// add multi suffix if there are multiple domain names in the certificate
+	if len(domain) > 1 {
+		crtB.WriteString("_multi")
+		keyB.WriteString("_multi")
+	}
+
+	crtB.WriteString(".crt")
+	keyB.WriteString(".key")
 
 	certFile, err := os.Create(crtB.String())
 	if err != nil {
