@@ -92,7 +92,7 @@ func generateCertificate(domains []string) (err error) {
 	keyB.WriteString(domains[0])
 
 	// add multi suffix if there are multiple domain names in the certificate
-	if len(domain) > 1 {
+	if len(domains) > 1 {
 		crtB.WriteString("_multi")
 		keyB.WriteString("_multi")
 	}

@@ -36,7 +36,7 @@ func buildDevcertDir() (string, error) {
 func sudoify(cmd ...string) *exec.Cmd {
 	_, err := exec.LookPath("sudo")
 	if err != nil {
-		fmt.Printf("\n'sudo' is not installed on the system, devcert might fail.")
+		fmt.Printf("'sudo' is not installed on the system, devcert might fail.\n")
 		return exec.Command(cmd[0], cmd[1:]...)
 	}
 
