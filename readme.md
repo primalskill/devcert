@@ -68,13 +68,15 @@ Available make commands:
 - `make release-win-amd64`
 - `make release-darwin-amd64`
 - `make release-darwin-arm64`
+- `make release-linux-amd64`
+- `make release-linux-arm64`
 
 ## Supported Platforms
 
 - macOS
 - Windows
+- Linux (Debian, Ubuntu, OpenSUSE, RHEL, CentOS, Fedora, Arch Linux)
 
-_Linux support coming soon._
 
 ## How It Works
 
