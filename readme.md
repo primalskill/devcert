@@ -51,8 +51,9 @@ Certificate authority (CA) marked trusted.
 
 ## Installation
 
-1. Grab a [pre-built binary](https://github.com/primalskill/devcert/releases/tag/v1.0.0).
-2. Clone this repo and compile from source using Go.
+Grab a [pre-built binary](https://github.com/primalskill/devcert/releases/tag/v1.0.0).
+OR
+Clone this repo and compile from source using Go.
 
 ## Compile from Source
 
