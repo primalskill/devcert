@@ -10,9 +10,10 @@ func main() {
 
 	var rootCmd = &cobra.Command{
 		Use:   "devcert [space separated domain names]",
-		Short: "short descr",
-		Long:  `long description`,
-		Args:  cobra.MinimumNArgs(1),
+		Short: "Self-signed trusted certificates for local development.",
+		Long: `Generate self-signed, trusted certificates for local development. 
+Devcert takes away the pain of creating certificates for development manually.`,
+		Args: cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			err := devcertExec(args)
 			if err != nil {
