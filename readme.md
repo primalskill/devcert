@@ -99,3 +99,18 @@ Running devcert for the first time will execute the setup process which will:
 3. It will mark the CA as trusted automatically.
 
 Once the setup process is completed it will generate the domain specific certificate. You can generate as many self-signed, trusted, local certificates for development as you like, the `.crt` and `.key` files will be placed in the `~/.devcert` directory.
+
+
+## Known Issues
+
+### Fixing `SEC_ERROR_REUSED_ISSUER_AND_SERIAL` in Firefox
+
+If you are getting this error, it's most likely Firefox preloaded a previously generated certificate authority (CA) in the default browser profile. This happens if the devcert CA files are manually removed and generated again.
+
+To fix it:
+
+1. Close all instances of Firefox
+2. Go in the profile folder
+  - Windows: `C:\Users\%userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles\%profile.default%`
+  - MacOS: `~/Library/Application Support/Firefox/Profiles/<profile folder>`
+3. Remove the files `cert8.db`, `cert9.db`, `cert_override.txt` (Note: some of these files may not exist).
