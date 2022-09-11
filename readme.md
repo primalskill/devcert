@@ -2,11 +2,14 @@
 
 devcert takes away the pain of manually creating self-signed certificates for development.
 
+------------
+
+**Note: These certificates are NOT meant to be used on any server other than your local development machine. These certificates are NOT secure and the generated certificate authority by this tool is NOT trusted by browser vendors.**
+
+-------------
+
 
 ![devcert-photo](https://user-images.githubusercontent.com/489775/167084056-4cf4a8f8-ff49-4ccc-b5de-a3c110ccbd01.png)
-
-
-
 
 
 ## Usage
