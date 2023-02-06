@@ -11,6 +11,44 @@ devcert takes away the pain of manually creating self-signed certificates for de
 
 ![devcert-photo](https://user-images.githubusercontent.com/489775/167084056-4cf4a8f8-ff49-4ccc-b5de-a3c110ccbd01.png)
 
+## Installation
+
+Grab a [pre-built binary](https://github.com/primalskill/devcert/releases).
+
+OR
+
+Clone this repo and compile from source using Go.
+
+### Install a pre-built binary
+
+1. Download the binary for your platform, example macOS ARM: `curl https://github.com/primalskill/devcert/releases/download/v1.1.2/devcert_darwin_arm64 > /usr/local/bin/devcert`
+2. Make it an executable: `chmod +x /usr/local/bin`
+3. Generate a certificate for a local domain (see the detailed usage below): `devcert example.test`
+
+
+### Compile from Source
+
+Prerequisites:
+
+- Go
+- Make
+
+Execute `make release-<desired platform and architecture>`. Make will create the binary in `./.bin` directory.
+
+Available make commands:
+
+- `make release-win-amd64`
+- `make release-darwin-amd64`
+- `make release-darwin-arm64`
+- `make release-linux-amd64`
+- `make release-linux-arm64`
+
+### Supported Platforms
+
+- macOS
+- Windows
+- Linux (Debian, Ubuntu, OpenSUSE, RHEL, CentOS, Fedora, Arch Linux)
+
 
 ## Usage
 
@@ -58,38 +96,6 @@ Certificate authority (CA) marked trusted.
 ```
 
 **Note: The certificate authority (CA) `.crt` and `.key` files should be left in the `~/.devcert` directory as these files will be loaded when generating a domain specific certificate.**
-
-## Installation
-
-Grab a [pre-built binary](https://github.com/primalskill/devcert/releases).
-
-OR
-
-Clone this repo and compile from source using Go.
-
-## Compile from Source
-
-Prerequisites:
-
-- Go
-- Make
-
-Execute `make release-<desired platform and architecture>`. Make will create the binary in `./.bin` directory.
-
-Available make commands:
-
-- `make release-win-amd64`
-- `make release-darwin-amd64`
-- `make release-darwin-arm64`
-- `make release-linux-amd64`
-- `make release-linux-arm64`
-
-## Supported Platforms
-
-- macOS
-- Windows
-- Linux (Debian, Ubuntu, OpenSUSE, RHEL, CentOS, Fedora, Arch Linux)
-
 
 ## How It Works
 
