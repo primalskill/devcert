@@ -116,10 +116,28 @@ Once the setup process is completed it will generate the domain specific certifi
 
 If you are getting this error, it's most likely Firefox preloaded a previously generated certificate authority (CA) in the default browser profile. This happens if the devcert CA files are manually removed and generated again.
 
-To fix it:
+**To fix it:**
 
 1. Close all instances of Firefox
 2. Go in the profile folder
   - Windows: `C:\Users\%userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles\%profile.default%`
   - MacOS: `~/Library/Application Support/Firefox/Profiles/<profile folder>`
 3. Remove the files `cert8.db`, `cert9.db`, `cert_override.txt` (Note: some of these files may not exist).
+
+### Self-signed certificate is not trusted in Xcode Simulator
+
+The self-signed certificate is not trusted in Safari on the Xcode iOS Simulator, this is because, well, it's for local development.
+
+**To fix it:**
+
+1. Find the root CA in your home directory: `~/.devcert/devcert_ca.crt`
+2. Drag the file onto the iOS Simulator window, this will kick-off the signing process in the background.
+
+_Reference_
+
+![image](https://user-images.githubusercontent.com/489775/221010171-be029b35-ddc8-4300-b06f-dac902ac8255.png)
+
+https://developer.apple.com/library/archive/qa/qa1948/_index.html
+
+
+
