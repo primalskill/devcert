@@ -21,8 +21,11 @@ Clone this repo and compile from source using Go.
 
 ### Install a pre-built binary
 
-1. Download the binary for your platform, example macOS ARM: `curl https://github.com/primalskill/devcert/releases/download/v1.2.0/devcert_darwin_arm64 > /usr/local/bin/devcert`
-2. Make it an executable: `chmod +x /usr/local/bin`
+1. Download the binary for your platform, example macOS ARM:
+```
+curl --location https://github.com/primalskill/devcert/releases/download/v1.2.0/devcert_darwin_arm64 --output /usr/local/bin/devcert
+```
+2. Make it an executable: `chmod u+x /usr/local/bin/devcert`
 3. Generate a certificate for a local domain (see the detailed usage below): `devcert example.test`
 
 
