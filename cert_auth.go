@@ -18,12 +18,16 @@ import (
 	"time"
 )
 
+var commonNameCA = "Devcert Certificate Authority (CA)"
+
 // CA represents a certificate authority cert and private key.
 type CA struct {
 	Valid   bool
 	Cert    *x509.Certificate
 	PrivKey *rsa.PrivateKey
 }
+
+
 
 func buildCAPaths() (crtPath, keyPath string, err error) {
 	devcertDir, err := buildDevcertDir()
@@ -184,7 +188,7 @@ func generateCA() (err error) {
 	ca := &x509.Certificate{
 		SerialNumber: big.NewInt(mrand.Int63()),
 		Subject: pkix.Name{
-			CommonName: "Devcert Certificate Authority (CA)",
+			CommonName: commonNameCA,
 		},
 		NotBefore:             time.Now(),
 		NotAfter:              time.Now().AddDate(5, 0, 0),
